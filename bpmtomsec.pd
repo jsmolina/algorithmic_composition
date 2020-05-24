@@ -1,0 +1,13 @@
+#N canvas 192 135 1010 692 12;
+#X obj 47 40 inlet;
+#X text 46 22 BPMs;
+#X obj 63 142 /;
+#X obj 63 200 outlet;
+#X text 74 182 Msec;
+#X msg 35 110 60000;
+#X obj 47 70 t b f;
+#X connect 0 0 6 0;
+#X connect 2 0 3 0;
+#X connect 5 0 2 0;
+#X connect 6 0 5 0;
+#X connect 6 1 2 1;

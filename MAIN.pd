@@ -1,0 +1,221 @@
+#N canvas 0 11 1005 673 12;
+#X obj 622 109 vsl 15 128 0 1 0 0 feedback2 feedback feedback 0 -8
+192 8 -262131 -1 -1 3810 1;
+#X obj 708 114 vsl 15 128 0 100 0 0 climax2 climax climax 0 -8 192
+8 -258699 -1 -1 3810 1;
+#X obj 170 71 hsl 128 15 60 240 0 0 global_tempo2 global_tempo Tempo
+0 -2 192 4 -24198 -66577 -66577 4233 0;
+#X floatatom 165 102 5 0 0 0 - - -;
+#X obj 238 228 bpmtoms;
+#X obj 417 383 Ritmos-Random;
+#X obj 238 198 +;
+#N canvas 0 0 450 300 graph1 0;
+#X array macroclimax 300 float 1;
+#A 0 28.5724 30.001 30.001 30.001 30.001 30.001 30.001 30.001 30.001
+30.001 30.001 30.001 30.001 30.001 30.2391 30.4772 30.7153 30.7153
+31.0724 31.7867 32.501 33.2153 33.9295 36.0724 36.7867 37.501 38.2153
+38.2153 39.6438 41.0724 41.4295 42.501 43.2153 43.5724 45.3581 45.5962
+45.8343 46.0724 48.2153 48.2153 48.9295 50.3581 50.7153 52.501 53.9295
+54.8819 55.8343 56.7867 57.7391 58.6915 59.6438 60.8343 62.0248 64.6438
+65.001 67.501 79.6439 80.3581 82.501 84.6439 84.6439 85.3582 86.0724
+86.501 86.9296 87.3582 87.7867 88.2153 88.4534 88.6915 88.9296 89.1677
+89.4058 89.6439 91.0724 91.0724 91.7867 91.7867 91.7867 91.7867 91.7867
+91.7867 91.7867 91.7867 91.7867 91.7867 91.0724 91.0724 90.3582 90.1201
+89.882 89.6439 88.9296 88.2153 87.501 87.0248 86.5486 86.0724 85.1796
+84.2867 83.3939 82.5011 82.2034 81.9058 81.6082 81.3106 81.0129 80.7153
+80.4177 80.1201 79.8224 79.5248 79.2272 78.9296 78.6915 78.4534 78.2153
+78.126 78.0367 77.9474 77.8582 77.7689 77.6796 77.5903 77.501 77.501
+77.501 76.7867 76.7867 76.7867 76.7867 75.3582 75.001 74.6439 73.9296
+73.5724 73.2153 72.501 72.1439 71.7867 71.7867 71.4296 71.0724 70.3581
+70.3581 70.3581 69.8224 69.2867 68.751 68.2153 67.7391 67.2629 66.7867
+66.4296 66.0724 64.6439 64.2867 63.9296 63.2153 62.501 61.7867 61.4296
+61.0724 60.7153 60.3581 60.001 59.6439 59.2867 58.9296 58.5724 58.2153
+57.501 57.1438 56.7867 56.7867 56.4296 56.0724 55.3581 55.3581 55.3581
+55.3581 55.001 54.6438 53.9296 53.4534 52.9772 52.501 51.4296 50.3581
+50.12 49.8819 49.6438 49.1677 48.6915 48.2153 47.501 47.501 47.501
+46.7867 46.7867 46.7867 46.0724 46.0724 46.0724 45.3581 45.3581 44.6438
+44.4057 44.1676 43.9296 43.4534 42.9772 42.501 41.7867 41.5486 41.3105
+41.0724 40.7153 40.3581 39.6438 39.6438 39.6438 38.9296 38.9296 38.9296
+38.2153 38.0724 37.9295 37.7867 37.6438 37.501 37.2629 37.0248 36.7867
+36.5486 36.3105 36.0724 35.3581 35.3581 35.3581 34.6438 34.6438 34.6438
+34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438
+34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438
+34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438
+34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438
+34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 34.6438 35.001 35.3581
+35.3581 35.3581 35.3581 35.3581 35.3581 35.3581 35.3581 35.7153 36.0724
+36.0724 36.4295 37.501;
+#X coords 0 100 299 0 200 140 1;
+#X restore 760 511 graph;
+#X obj 296 170 / 0.75;
+#X floatatom 709 260 5 0 0 0 - - -;
+#X obj 116 349 randomsequencer;
+#N canvas 218 179 460 310 climax_seq 0;
+#X msg 316 75 \; pd dsp 1;
+#X msg 47 76 \; pd dsp 0;
+#X obj 224 232 tabread macroclimax;
+#X obj 204 114 metro 1000;
+#X obj 262 151 + 1;
+#X obj 204 151 f;
+#X floatatom 204 195 5 0 0 0 - - -;
+#X obj 267 196 % 300;
+#X msg 122 147 0;
+#X obj 125 22 inlet;
+#X obj 204 24 inlet;
+#X obj 223 273 outlet;
+#X connect 2 0 11 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 1;
+#X connect 8 0 6 0;
+#X connect 9 0 3 0;
+#X connect 9 0 1 0;
+#X connect 9 0 8 0;
+#X connect 10 0 3 0;
+#X connect 10 0 0 0;
+#X restore 415 184 pd climax_seq;
+#X msg 794 245 stop;
+#X msg 803 145 bang;
+#N canvas 0 0 1009 691 delay_exec 0;
+#X obj 118 216 delayline delay1;
+#X obj 339 278 delayline delay2;
+#X obj 178 185 * 0.5;
+#X obj 395 245 * 1.25;
+#X obj 459 51 inlet;
+#X text 453 34 Feedback;
+#X obj 153 28 inlet;
+#X text 147 8 Tempo (ms);
+#X text 79 14 Sound;
+#X obj 79 43 inlet~;
+#X obj 252 496 outlet~;
+#X obj 321 497 outlet~;
+#X obj 74 84 s~ soun;
+#X obj 115 189 r~ soun;
+#X obj 323 242 r~ soun;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
+#X connect 2 0 0 1;
+#X connect 3 0 1 1;
+#X connect 4 0 1 2;
+#X connect 4 0 0 2;
+#X connect 6 0 2 0;
+#X connect 6 0 3 0;
+#X connect 9 0 12 0;
+#X connect 13 0 0 0;
+#X connect 14 0 1 0;
+#X restore 202 449 pd delay_exec;
+#X obj 147 408 RolandTB303;
+#X obj 297 416 r feedback2;
+#X obj 300 137 r climax2;
+#X obj 798 185 s starrt;
+#X obj 791 284 s stoop;
+#X obj 49 285 r starrt;
+#X obj 127 287 r stoop;
+#X obj 408 138 r starrt;
+#X obj 515 139 r stoop;
+#X floatatom 622 258 5 0 0 0 - - -;
+#X obj 417 222 s climax;
+#X text 808 128 Start;
+#X text 794 217 Stop;
+#X obj 800 86 loadbang;
+#X text 155 45 Tempo;
+#X obj 164 137 r global_tempo2;
+#X msg -148 104 \; pd dsp 1;
+#X msg -148 104 \; pd dsp 1;
+#X msg -148 104 \; pd dsp 1;
+#X obj 48 380 hradio 15 1 0 2 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 430 458 percusion-tomcat;
+#X obj 535 379 r st_t1;
+#X obj 600 378 r st_t2;
+#N canvas 6 2 1009 689 drumbass 0;
+#X floatatom 67 214 5 0 0 0 - - -;
+#X floatatom 122 215 5 0 0 0 - - -;
+#X obj 92 155 makenote;
+#X msg 58 117 50;
+#X msg 113 118 100;
+#X msg 152 102 82;
+#X obj 61 20 inlet;
+#X obj 85 314 outlet~;
+#X obj 78 253 RolandTB303 2;
+#X connect 0 0 8 1;
+#X connect 1 0 8 2;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 2;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X restore 573 470 pd drumbass;
+#X obj 424 611 dac~;
+#X obj 582 441 delay 200;
+#X obj 692 364 r global_tempo2;
+#X obj 692 393 * 200;
+#X obj 695 427 / 120;
+#X floatatom 701 460 5 0 0 0 - - -;
+#X msg 864 124 \; feedback 0.3 \; global_tempo 120 \; pd dsp 1;
+#X obj 430 510 *~ 0.25;
+#X obj 522 513 *~ 0.25;
+#X obj 224 506 *~ 0.1;
+#X obj 306 502 *~ 0.1;
+#X text 33 644 MAIN \, se controla el tempo \, la linea de climax y
+el tipo de onda de salida. Desde aqui se hacen las instancias para
+todos los objetos. RolandTB303 - Sintetizador 303 randomsequencer -
+secuenciador aleatorio Ritmos-Random - Seleccion de ritmos aleatoriamente
+percusion-tomcat - Sintetizador de bateria pd drumbass - para generar
+sonidos de bajo acompanando la bateria;
+#X obj 242 307 r climax2;
+#X connect 0 0 24 0;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 4 0 14 1;
+#X connect 4 0 10 1;
+#X connect 5 0 35 0;
+#X connect 5 1 35 1;
+#X connect 5 2 35 2;
+#X connect 5 3 35 3;
+#X connect 5 3 40 0;
+#X connect 6 0 4 0;
+#X connect 8 0 6 1;
+#X connect 10 0 15 1;
+#X connect 10 1 15 2;
+#X connect 10 2 15 3;
+#X connect 11 0 25 0;
+#X connect 12 0 19 0;
+#X connect 13 0 18 0;
+#X connect 14 0 48 0;
+#X connect 14 1 49 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 2;
+#X connect 17 0 8 0;
+#X connect 20 0 10 0;
+#X connect 21 0 10 0;
+#X connect 22 0 11 0;
+#X connect 23 0 11 1;
+#X connect 28 0 13 0;
+#X connect 28 0 45 0;
+#X connect 30 0 6 0;
+#X connect 34 0 15 0;
+#X connect 35 0 46 0;
+#X connect 36 0 35 4;
+#X connect 37 0 35 5;
+#X connect 38 0 47 0;
+#X connect 40 0 38 0;
+#X connect 41 0 42 0;
+#X connect 42 0 43 0;
+#X connect 43 0 40 1;
+#X connect 43 0 44 0;
+#X connect 46 0 39 0;
+#X connect 46 0 39 1;
+#X connect 47 0 39 1;
+#X connect 47 0 39 0;
+#X connect 48 0 39 0;
+#X connect 49 0 39 1;
+#X connect 51 0 10 2;
